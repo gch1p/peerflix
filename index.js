@@ -56,7 +56,7 @@ var createServer = function (e, opts) {
 
     var toPlaylist = function () {
       var toEntry = function (file, i) {
-        return '#EXTINF:-1,' + file.path.replace('-', '\u2013') + '\n' + 'http://' + host + '/' + i
+        return '#EXTINF:-1,' + file.path.replace(/-/g, '\u2013') + '\n' + 'http://' + host + '/' + i
       }
 
       return '#EXTM3U\n' + e.files.filter(filter).map(toEntry).join('\n')
